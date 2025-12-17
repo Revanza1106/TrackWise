@@ -19,7 +19,7 @@ export async function getGoals() {
     })
 
     const goalsWithLastActivity = await Promise.all(
-      goals.map(async (goal) => {
+      goals.map(async (goal: any) => {
         const lastProgress = await prisma.progressLog.findFirst({
           where: { goalId: goal.id },
           orderBy: { date: 'desc' }
