@@ -9,6 +9,9 @@ A minimalist personal learning progress tracker that helps you stay consistent a
 - 🎯 **Goal Management** - Create and organize learning goals with status tracking (active/paused/done)
 - 📊 **Progress Tracking** - Log detailed progress with notes, hours spent, and timestamps
 - 📈 **Statistics Dashboard** - View comprehensive statistics including total hours, progress count, and activity dates
+- 🤖 **AI-Powered Insights** - Get personalized learning advice and progress analysis using OpenAI
+- 🔮 **Smart Progress Analysis** - Automatic percentage calculation, trend detection, and consistency tracking
+- 💡 **Intelligent Recommendations** - AI-generated suggestions based on your learning patterns and progress data
 - 🎨 **Modern UI** - Clean, responsive design built with Tailwind CSS
 - 🚀 **Real-time Updates** - Instant feedback when adding progress or updating goals
 - 💾 **Local Data Storage** - SQLite database for fast, reliable local data storage
@@ -17,6 +20,7 @@ A minimalist personal learning progress tracker that helps you stay consistent a
 
 - **Frontend**: Next.js 14 (App Router) + TypeScript
 - **Database**: SQLite with Prisma ORM
+- **AI Integration**: OpenAI API for intelligent insights
 - **Styling**: Tailwind CSS
 - **State Management**: Server Actions + React state
 - **Development**: TypeScript, ESLint
@@ -46,7 +50,11 @@ A minimalist personal learning progress tracker that helps you stay consistent a
    cp .env.example .env
    ```
 
-   The default `.env.example` contains the SQLite database configuration.
+   Add your OpenAI API key for AI features:
+   ```env
+   DATABASE_URL="file:./dev.db"
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
 
 4. **Set up the database**
    ```bash
@@ -88,6 +96,17 @@ Each goal displays:
 - **Total Hours**: Cumulative time spent
 - **Last Activity**: Most recent progress date
 - **Status**: Current goal state
+
+### AI-Powered Insights
+
+Trackwise leverages AI to enhance your learning experience:
+
+- **Progress Analysis**: Automatic calculation of completion percentage, learning consistency, and progress trends
+- **Personalized Advice**: AI-generated recommendations based on your learning patterns
+- **Smart Recommendations**: Actionable tips to improve consistency and achieve goals faster
+- **Trend Detection**: Identifies if your learning is improving, stable, or needs attention
+
+To get AI insights, visit any goal detail page and view the "Progress Analysis" section.
 
 ## 🏗️ Project Structure
 
