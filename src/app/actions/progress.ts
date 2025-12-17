@@ -26,7 +26,6 @@ export async function addProgressLog(goalId: number, formData: FormData) {
     revalidatePath('/')
     return progressLog
   } catch (error) {
-    console.error('Error adding progress log:', error)
     throw new Error('Failed to add progress log')
   }
 }
@@ -40,7 +39,6 @@ export async function getProgressLogs(goalId: number) {
 
     return progressLogs
   } catch (error) {
-    console.error('Error fetching progress logs:', error)
     throw new Error('Failed to fetch progress logs')
   }
 }
@@ -68,7 +66,6 @@ export async function updateProgressLog(id: number, formData: FormData) {
     // This will be handled client-side with proper goalId
     return progressLog
   } catch (error) {
-    console.error('Error updating progress log:', error)
     throw new Error('Failed to update progress log')
   }
 }
@@ -83,7 +80,6 @@ export async function deleteProgressLog(id: number, goalId: number) {
     revalidatePath('/')
     return { success: true }
   } catch (error) {
-    console.error('Error deleting progress log:', error)
     throw new Error('Failed to delete progress log')
   }
 }

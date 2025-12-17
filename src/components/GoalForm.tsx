@@ -24,7 +24,6 @@ export default function GoalForm({ goal, onSubmit, onCancel }: GoalFormProps) {
       const formData = new FormData(event.currentTarget)
       await onSubmit(formData)
     } catch (error) {
-      console.error('Error submitting form:', error)
       alert('Error submitting form. Please try again.')
     } finally {
       setIsSubmitting(false)

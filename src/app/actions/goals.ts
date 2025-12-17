@@ -60,7 +60,7 @@ export async function getGoal(id: number) {
       throw new Error('Goal not found')
     }
 
-    const totalHours = goal.progress.reduce((sum, log) => sum + (log.hours || 0), 0)
+    const totalHours = goal.progress.reduce((sum: any, log: { hours: unknown }) => sum + (log.hours || 0), 0)
 
     return {
       ...goal,
@@ -110,7 +110,7 @@ export async function updateGoal(id: number, formData: FormData) {
       where: { id },
       data: {
         title,
-        description: description || null,
+        description: description,
         status: status || 'active'
       }
     })
@@ -119,7 +119,6 @@ export async function updateGoal(id: number, formData: FormData) {
     revalidatePath(`/goals/${id}`)
     return goal
   } catch (error) {
-    console.log(error,'eorrrrrrr')
     throw error
   }
 }
