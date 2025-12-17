@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { getGoal } from '../../actions/goals'
 import { addProgressLog, deleteProgressLog } from '../../actions/progress'
 import ProgressForm from '@/components/ProgressForm'
+import { ProgressInsights } from '@/components/ProgressInsights'
 import Link from 'next/link'
 
 interface PageProps {
@@ -81,6 +82,10 @@ export default async function GoalDetailPage({ params }: PageProps) {
                 <div className="text-sm text-muted-foreground">Status</div>
               </div>
             </div>
+          </div>
+
+          <div className="mb-8">
+            <ProgressInsights goalId={goal.id} />
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
