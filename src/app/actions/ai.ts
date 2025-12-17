@@ -36,7 +36,7 @@ export async function getAIAdvice(goalId: number, context: 'dashboard' | 'goal_d
         description: goal.description,
         status: goal.status,
         createdAt: goal.createdAt,
-        progress: goal.progress.map(p => ({
+        progress: goal.progress.map((p: any) => ({
           date: p.date,
           note: p.note,
           hours: p.hours || undefined
