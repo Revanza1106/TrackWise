@@ -11,12 +11,13 @@ datasource db {
 }
 
 model Goal {
-  id          Int           @id @default(autoincrement())
-  title       String
-  description String?
-  status      String
-  createdAt   DateTime      @default(now())
-  progress    ProgressLog[]
+  id            Int           @id @default(autoincrement())
+  title         String
+  description   String?
+  status        String
+  createdAt     DateTime      @default(now())
+  progress      ProgressLog[]
+  conversations Conversation[]
 }
 
 model ProgressLog {
@@ -27,4 +28,23 @@ model ProgressLog {
   hours     Float?
 
   goal Goal @relation(fields: [goalId], references: [id], onDelete: Cascade)
+}
+
+model Conversation {
+  id        Int      @id @default(autoincrement())
+  goalId    Int
+  title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  goal      Goal     @relation(fields: [goalId], references: [id], onDelete: Cascade)
+  messages  ChatMessage[]
+}
+
+model ChatMessage {
+  id             Int           @id @default(autoincrement())
+  conversationId Int
+  role           String        // 'user' | 'assistant'
+  content        String
+  createdAt      DateTime      @default(now())
+  conversation   Conversation  @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 }
