@@ -10,7 +10,7 @@ export class ProgressAnalyzer {
   private static readonly LOW_CONSISTENCY = 40;
   private static readonly GOOD_PROGRESS = 50;
 
-  static calculateProgressPercentage(goal: unknown): ProgressAnalysis {
+  static calculateProgressPercentage(goal: any): ProgressAnalysis {
     const progress = goal.progress || [];
     const totalHours = goal.totalHours || 0;
 
