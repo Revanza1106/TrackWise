@@ -6,12 +6,11 @@ export class ProgressAnalyzer {
   private static readonly MAX_PROGRESS = 100;
   private static readonly MIN_ENTRIES_FOR_TREND = 3;
   private static readonly DAYS_FOR_CONSISTENCY = 30;
-  private static readonly RECENT_DAYS_THRESHOLD = 7;
   private static readonly LOW_PROGRESS = 30;
   private static readonly LOW_CONSISTENCY = 40;
   private static readonly GOOD_PROGRESS = 50;
 
-  static calculateProgressPercentage(goal: any): ProgressAnalysis {
+  static calculateProgressPercentage(goal: unknown): ProgressAnalysis {
     const progress = goal.progress || [];
     const totalHours = goal.totalHours || 0;
 

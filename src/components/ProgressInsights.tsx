@@ -86,7 +86,7 @@ export function ProgressInsights({ goalId }: ProgressInsightsProps) {
   }
 
   const progressColor = analysis.percentage >= 70 ? 'text-green-600' :
-                       analysis.percentage >= 40 ? 'text-yellow-600' : 'text-red-600';
+  analysis.percentage >= 40 ? 'text-yellow-600' : 'text-red-600';
 
   const trendColor = analysis.trend === 'improving' || analysis.trend === 'stable' ? 'text-green-600' :
               analysis.trend === 'declining' ? 'text-red-600' : 'text-gray-600';
