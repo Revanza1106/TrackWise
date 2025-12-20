@@ -3,6 +3,7 @@ import { getGoal } from '../../actions/goals'
 import { addProgressLog, deleteProgressLog } from '../../actions/progress'
 import ProgressForm from '@/components/ProgressForm'
 import { ProgressInsights } from '@/components/ProgressInsights'
+import AIChat from '@/components/AIChat'
 import Link from 'next/link'
 
 interface PageProps {
@@ -65,7 +66,6 @@ export default async function GoalDetailPage({ params }: PageProps) {
               >
                 {goal.status}
               </span>
-              
             </div>
 
             <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
@@ -136,6 +136,9 @@ export default async function GoalDetailPage({ params }: PageProps) {
           </div>
         </div>
       </div>
+
+      {/* AI Chat Component */}
+      <AIChat goalId={goal.id} goalTitle={goal.title} />
     </main>
   )
 }
