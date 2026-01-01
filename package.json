@@ -12,6 +12,7 @@
     "@prisma/adapter-better-sqlite3": "^7.1.0",
     "@prisma/client": "^5.22.0",
     "@prisma/extension-accelerate": "^3.0.1",
+    "lucide-react": "^0.562.0",
     "next": "^14.0.0",
     "openai": "^6.14.0",
     "prisma": "^5.22.0",
