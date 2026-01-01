@@ -29,6 +29,12 @@ export interface ChatContext {
   conversationHistory?: ChatMessage[]
 }
 
+interface ConversationHistory {
+  role: string
+  content: unknown
+  createdAt: unknown
+}
+
 export class ChatService {
   static async createConversation(goalId: number, title: string) {
     return await prisma.conversation.create({
@@ -205,7 +211,7 @@ Respond naturally as a learning coach would.`
         totalHours: goal.progress.reduce((sum, p) => sum + (p.hours || 0), 0),
         progressCount: goal.progress.length,
       },
-      conversationHistory: conversation.messages.map(msg => ({
+      conversationHistory: conversation.messages.map((msg: ConversationHistory) => ({
         role: msg.role as 'user' | 'assistant',
         content: msg.content,
         createdAt: msg.createdAt,
