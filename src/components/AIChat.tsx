@@ -235,7 +235,6 @@ export default function AIChat({ goalId, goalTitle }: AIChatProps) {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
           <form onSubmit={sendMessage} className="p-4 border-t border-gray-200">
             <div className="flex space-x-2">
               <input

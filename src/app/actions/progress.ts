@@ -61,9 +61,6 @@ export async function updateProgressLog(id: number, formData: FormData) {
         date: date ? new Date(date) : new Date()
       }
     })
-
-    // Revalidate the goal page since we don't have goalId here
-    // This will be handled client-side with proper goalId
     return progressLog
   } catch (error) {
     throw new Error('Failed to update progress log')
