@@ -4,6 +4,7 @@ import { addProgressLog, deleteProgressLog } from '../../actions/progress'
 import ProgressForm from '@/components/ProgressForm'
 import { ProgressInsights } from '@/components/ProgressInsights'
 import AIChat from '@/components/AIChat'
+import StatusChanger from '@/components/StatusChanger'
 import Link from 'next/link'
 
 interface PageProps {
@@ -55,17 +56,7 @@ export default async function GoalDetailPage({ params }: PageProps) {
                   </p>
                 )}
               </div>
-              <span
-                className={`px-4 py-2 rounded-full text-sm font-medium capitalize ${
-                  goal.status === 'active'
-                    ? 'bg-green-500/10 text-green-700 border border-green-500/20'
-                    : goal.status === 'paused'
-                    ? 'bg-yellow-500/10 text-yellow-700 border border-yellow-500/20'
-                    : 'bg-gray-500/10 text-gray-700 border border-gray-500/20'
-                }`}
-              >
-                {goal.status}
-              </span>
+              <StatusChanger goalId={goal.id} currentStatus={goal.status} />
             </div>
 
             <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
