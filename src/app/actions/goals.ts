@@ -135,3 +135,18 @@ export async function deleteGoal(id: number) {
     throw error
   }
 }
+
+export async function updateGoalStatus(id: number, status: string) {
+  try {
+    const goal = await prisma.goal.update({
+      where: { id },
+      data: { status }
+    })
+
+    revalidatePath('/')
+    revalidatePath(`/goals/${id}`)
+    return goal
+  } catch (error) {
+    throw new Error('invalid')
+  }
+}
