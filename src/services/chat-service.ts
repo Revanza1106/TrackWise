@@ -211,10 +211,10 @@ Respond naturally as a learning coach would.`
         totalHours: goal.progress.reduce((sum, p) => sum + (p.hours || 0), 0),
         progressCount: goal.progress.length,
       },
-      conversationHistory: conversation.messages.map((msg: ConversationHistory) => ({
+      conversationHistory: conversation.messages.map((msg: any) => ({
         role: msg.role as 'user' | 'assistant',
-        content: msg.content,
-        createdAt: msg.createdAt,
+        content: String(msg.content),
+        createdAt: new Date(msg.createdAt),
       })),
     }
 
